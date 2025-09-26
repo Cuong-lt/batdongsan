@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class RoleResponse {
-    String id;
+    Long id;
     String roleName;
     String code;
     LocalDateTime createdDate;

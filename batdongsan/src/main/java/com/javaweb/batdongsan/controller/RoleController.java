@@ -32,14 +32,14 @@ public class RoleController {
     }
 
     @GetMapping("/getRoleById/{roleId}")
-    public ApiResponse<RoleResponse> getRoleById(@PathVariable String roleId){
+    public ApiResponse<RoleResponse> getRoleById(@PathVariable Long roleId){
         ApiResponse<RoleResponse> response = new ApiResponse<>();
         response.setResult(roleService.getRoleById(roleId));
         return response;
     }
 
     @PutMapping("/update/{roleId}")
-    public ApiResponse<RoleResponse> updateRoleById(@PathVariable String roleId, @RequestBody @Valid RoleRequest request){
+    public ApiResponse<RoleResponse> updateRoleById(@PathVariable Long roleId, @RequestBody @Valid RoleRequest request){
         ApiResponse<RoleResponse> response = new ApiResponse<>();
         response.setResult(roleService.updateRole(roleId, request));
         response.setMessage("Role updated successfully");
@@ -47,7 +47,7 @@ public class RoleController {
     }
 
     @DeleteMapping("/delete/{roleId}")
-    public ApiResponse<String> deleteRoleById(@PathVariable String roleId){
+    public ApiResponse<String> deleteRoleById(@PathVariable Long roleId){
         ApiResponse<String> response = new ApiResponse<>();
         roleService.deleteRoleById(roleId);
         response.setMessage("Role deleted successfully");

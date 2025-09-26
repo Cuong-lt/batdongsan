@@ -1,6 +1,10 @@
 package com.javaweb.batdongsan.entity;
 
-import jakarta.persistence.*;
+import com.javaweb.batdongsan.entity.customer.Customer;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,13 +15,12 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
-public class UserRole extends BaseEntity{
+public class AssignmentCustomer extends BaseEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id",nullable = false)
-    User user;
+    Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id", nullable = false)
-     Role role;
+            @JoinColumn(name = "staff_id")
+    User staff;
 }

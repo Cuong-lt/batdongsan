@@ -45,14 +45,14 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public RoleResponse getRoleById(String roleId) {
+    public RoleResponse getRoleById(Long roleId) {
         Role role = roleRepository.findById(roleId)
                 .orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_FOUND));
         return roleConverter.toResponse(role);
     }
 
     @Override
-    public RoleResponse updateRole(String roleId, RoleRequest request) {
+    public RoleResponse updateRole(Long roleId, RoleRequest request) {
         Role role = roleRepository.findById(roleId)
                 .orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_FOUND));
         role =  roleConverter.toEntity(role,request);
@@ -61,7 +61,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void deleteRoleById(String roleId) {
+    public void deleteRoleById(Long roleId) {
         Role role = roleRepository.findById(roleId)
                 .orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_FOUND));
         roleRepository.delete(role);

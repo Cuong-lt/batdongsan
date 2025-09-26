@@ -34,14 +34,14 @@ public class UserController {
     }
 
     @GetMapping("/getById/{userId}")
-    public ApiResponse<UserResponse> getUserById(@PathVariable String userId){
+    public ApiResponse<UserResponse> getUserById(@PathVariable Long userId){
         ApiResponse<UserResponse> response = new ApiResponse<>();
         response.setResult(userService.getUserById(userId));
         return response;
     }
 
     @PutMapping("/update/{userId}")
-    public ApiResponse<UserResponse> updateUser(@PathVariable String userId, @RequestBody @Valid UserUpdateRequest request) {
+    public ApiResponse<UserResponse> updateUser(@PathVariable Long userId, @RequestBody @Valid UserUpdateRequest request) {
         ApiResponse<UserResponse> response = new ApiResponse<>();
         response.setResult(userService.updateUser(userId,request));
         response.setMessage("User updated successfully");
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{userId}")
-    public ApiResponse<String> deleteUserById(@PathVariable String userId) {
+    public ApiResponse<String> deleteUserById(@PathVariable Long userId) {
         ApiResponse<String> response = new ApiResponse<>();
         userService.deleteUser(userId);
         response.setResult("User deleted successfully");

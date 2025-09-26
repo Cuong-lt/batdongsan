@@ -8,13 +8,13 @@ import java.util.List;
 public interface UserRoleService {
     UserRoleResponse addRoleToUser(UserRoleRequest request);
 
-    UserRoleResponse getById(String id);
+    UserRoleResponse getById(Long id);
 
     List<UserRoleResponse> getAll();
 
-    UserRoleResponse updateUserRoleById(String id, UserRoleRequest request);
+    UserRoleResponse updateUserRoleById(Long id, UserRoleRequest request);
 
-    void deleteUserRoleById(String id);
+    void deleteUserRoleById(Long id);
 
     List<UserRoleResponse> getByUserName(String userName);
 

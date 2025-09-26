@@ -12,9 +12,9 @@ public interface RoleService {
 
     List<RoleResponse> getAllRoles();
 
-    RoleResponse getRoleById(String roleId);
+    RoleResponse getRoleById(Long roleId);
 
-    RoleResponse updateRole(String roleId, @Valid RoleRequest request);
+    RoleResponse updateRole(Long roleId, @Valid RoleRequest request);
 
-    void deleteRoleById(String roleId);
+    void deleteRoleById(Long roleId);
 }

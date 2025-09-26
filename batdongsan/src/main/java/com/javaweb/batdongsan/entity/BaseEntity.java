@@ -22,9 +22,8 @@ import java.time.LocalDateTime;
 @SuperBuilder
 public class BaseEntity {
     @Id
-    @Column(columnDefinition = "VARCHAR(36)")
-    @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     @CreatedDate
     @Column(name = "createddate")

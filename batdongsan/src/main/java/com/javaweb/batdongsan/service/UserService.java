@@ -13,9 +13,9 @@ public interface UserService {
 
     List<UserResponse> getAllUsers();
 
-    UserResponse getUserById(String userId);
+    UserResponse getUserById(Long userId);
 
-    UserResponse updateUser(String userId, @Valid UserUpdateRequest request);
+    UserResponse updateUser(Long userId, @Valid UserUpdateRequest request);
 
-    void deleteUser(String userId);
+    void deleteUser(Long userId);
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserResponse {
-    String id;
+    Long id;
     String userName;
     String password;
     String fullName;

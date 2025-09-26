@@ -23,7 +23,7 @@ public class UserRoleController {
         return response;
     }
     @GetMapping("/getById/{id}")
-    public ApiResponse<UserRoleResponse> getById(@PathVariable String id) {
+    public ApiResponse<UserRoleResponse> getById(@PathVariable Long id) {
         ApiResponse<UserRoleResponse> response = new ApiResponse<>();
         response.setResult(userRoleService.getById(id));
         return response;
@@ -52,7 +52,7 @@ public class UserRoleController {
     }
 
     @PutMapping("/update/{id}")
-    public ApiResponse<UserRoleResponse> updateUserRole(@PathVariable String id,
+    public ApiResponse<UserRoleResponse> updateUserRole(@PathVariable Long id,
                                                         @RequestBody UserRoleRequest request) {
 
         ApiResponse<UserRoleResponse> response = new ApiResponse<>();
@@ -61,7 +61,7 @@ public class UserRoleController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ApiResponse<Void> deleteUserRole(@PathVariable String id) {
+    public ApiResponse<Void> deleteUserRole(@PathVariable Long id) {
         userRoleService.deleteUserRoleById(id);
         ApiResponse<Void> response = new ApiResponse<>();
         response.setMessage("Delete successfully");

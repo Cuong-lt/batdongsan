@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRoleRepository extends JpaRepository<UserRole,String> {
+public interface UserRoleRepository extends JpaRepository<UserRole,Long> {
     List<UserRole> findByUser_UserName(String userName);
     List<UserRole> findByRole_Code(String code);
 }

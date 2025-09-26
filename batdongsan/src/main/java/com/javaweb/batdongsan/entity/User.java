@@ -1,5 +1,5 @@
 package com.javaweb.batdongsan.entity;
-
+import com.javaweb.batdongsan.entity.building.Building;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -7,7 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import lombok.experimental.SuperBuilder;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -35,5 +36,8 @@ public class User extends BaseEntity{
     @Column(nullable = false)
     Integer status = 1;
     String avatar;
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Building> buildings = new ArrayList<>();
 
 }

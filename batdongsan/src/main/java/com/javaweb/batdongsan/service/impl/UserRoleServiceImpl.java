@@ -49,7 +49,7 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public UserRoleResponse getById(String id) {
+    public UserRoleResponse getById(Long id) {
         UserRole userRole = userRoleRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_ROLE_NOT_FOUND));
         return userRoleConverter.toResponse(userRole);
@@ -66,7 +66,7 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public UserRoleResponse updateUserRoleById(String id, UserRoleRequest request) {
+    public UserRoleResponse updateUserRoleById(Long id, UserRoleRequest request) {
         UserRole userRole = userRoleRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_ROLE_NOT_FOUND));
         User user = userRepository.findByUserName(request.getUserName())
@@ -82,7 +82,7 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public void deleteUserRoleById(String id) {
+    public void deleteUserRoleById(Long id) {
         UserRole userRole = userRoleRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_ROLE_NOT_FOUND));
         userRoleRepository.delete(userRole);

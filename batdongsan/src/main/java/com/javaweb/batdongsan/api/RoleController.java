@@ -1,4 +1,4 @@
-package com.javaweb.batdongsan.controller;
+package com.javaweb.batdongsan.api;
 
 import com.javaweb.batdongsan.model.request.role.RoleRequest;
 import com.javaweb.batdongsan.model.response.ApiResponse;

@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserCreationRequest {
+public class RegisterRequest {
     @Size(min = 3, message = "USERNAME_PASSWORD_INVALID")
     String userName;
 
@@ -18,7 +18,5 @@ public class UserCreationRequest {
     String fullName;
     String phone;
     String email;
-    String avatar;
-    Integer status;
-
+    String role;
 }

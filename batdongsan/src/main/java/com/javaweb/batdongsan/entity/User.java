@@ -33,11 +33,13 @@ public class User extends BaseEntity{
     @Size(max = 500)
     String email;
 
-    @Column(nullable = false)
+
     Integer status = 1;
     String avatar;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     List<Building> buildings = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    List<UserRole> userRoles = new ArrayList<>();
 }
